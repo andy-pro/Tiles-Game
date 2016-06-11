@@ -8,13 +8,7 @@
 
 angular.module('TilesGame', ['ngAnimate'])
 .component('tilesTable', {
-  template: [
-    '<div id="tile-table" class="container">',
-      '<congra-tulations ng-show="$ctrl.gameover"></congra-tulations>',
-      '<tile-element ng-repeat="tile in $ctrl.tiles"></tile-element>',
-    '</div>',
-    '<btn-restart></btn-restart>'
-  ].join(''),
+  templateUrl: 'static/views/gamezone.html',
   controller: ['$filter', function TilesTable($filter) {
     var font = [
       "bluetooth", "camera-retro", "envira", "bank",
@@ -47,16 +41,17 @@ angular.module('TilesGame', ['ngAnimate'])
       }
 
       function dfrAction(data) { // some deferred actions
-        // here we can apply animations
         $timeout(function() {
+          function hide() {
+            data.tile1.tile.show = false;
+            data.tile2.tile.show = false;
+          }
           switch(data.action) {
             case 'close':
-              data.tile1.tile.show = false;
-              data.tile2.tile.show = false;
+              hide();
               break;
             case 'disappear':
-              data.tile1.tile.show = false;
-              data.tile2.tile.show = false;
+              hide();
               dfrAction({
                 tile1: data.tile1,
                 tile2: data.tile2,
@@ -90,7 +85,7 @@ angular.module('TilesGame', ['ngAnimate'])
             thisTile.tile.show = false;
           } else {
             // different tiles
-            if(getId(ctrl.formerTile.el) === getId(thisTile.el)) {
+            if(getId(ctrl.formerTile.el) == getId(thisTile.el)) {
               // the contents of the tiles is same, both should disappear
               dfrAction({
                 tile1: thisTile,
@@ -115,27 +110,6 @@ angular.module('TilesGame', ['ngAnimate'])
         }
       };
     }
-  };
-}])
-.directive('btnRestart', [function() {
-  return {
-    restrict: 'E',
-    template: [
-      '<div class="center spaced padded">',
-        '<button class="btn large aquamarin rounded" ng-click="$ctrl.restart()">Restart</button>',
-      '</div>'
-    ].join('')
-  };
-}])
-.directive('congraTulations', [function() {
-  return {
-    restrict: 'E',
-    replace: true,
-    template: [
-      '<div class="congratulations">',
-        '<button class="btn large rounded orange" ng-click="$ctrl.restart()">Congratulations!</button>',
-      '</div>'
-    ].join('')
   };
 }])
 .filter('randomSequense', function() {

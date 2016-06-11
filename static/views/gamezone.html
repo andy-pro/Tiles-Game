@@ -1,0 +1,9 @@
+<div id="tile-table" class="container">
+  <div class="congratulations" ng-show="$ctrl.gameover">
+    <button class="btn large rounded orange" ng-click="$ctrl.restart()">Congratulations!</button>
+  </div>
+  <tile-element ng-repeat="tile in $ctrl.tiles"></tile-element>
+</div>
+<div class="center spaced padded">
+  <button class="btn large aquamarin rounded" ng-click="$ctrl.restart()">Restart</button>
+</div>
