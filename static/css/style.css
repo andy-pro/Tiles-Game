@@ -1,30 +1,89 @@
-#tile-table {
-  width: 446px;
-  margin: 30px auto 0 auto;
-  border: 1px solid #26a69a;
-  border-radius: 10px;
-  padding: 12px 0 6px 14px;
+*, *:after, *:before {
+  border: 0 none;
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
 }
 
-.tile {
+.game-area {
+  margin: 30px auto 0 auto;
+  border-radius: 10px;
+  padding: 8px;
+  display: table;
+}
+
+.tile-table {
+/*display: table;*/
+  margin: 30px auto 0 auto;
+  /*border: 4px double #333;*/
+  border-radius: 10px;
+  border: 1px solid #26a69a;
+  /*border-collapse: separate;*/
+  /*width: 100%;*/
+  border-spacing: 7px 7px;
+}
+
+.tile-table > div {
+  display: block;
+}
+
+.tile-table > div > div {
+  display: inline-block;
+}
+
+td.nest {
   width: 100px;
   height: 100px;
+  /*padding: 2px;*/
 }
 
-.nest {
-  width: 110px;
-  height: 106px;
+.nest-tile {
+  height: 85px;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 0 0 1px #ddd inset;
+  color: #477;
+  text-align: center;
+  font-size: 13px;
+  padding-top: 14px;
+  /*margin: 2px;*/
+}
+
+.nest-tile:hover, .btn:hover {
+  cursor: pointer;
+  box-shadow: 0 0 10px #666;
 }
 
 .btn.large {
+  font-size: 1.2em;
   padding: 12px 45px;
 }
 
-.congratulations {
-  position: absolute;
-  margin-top: 184px;
-  margin-left: 92px;
-  z-index: 100;
+.rounded {
+  border-radius: 5px;
+}
+
+.btn, button, [type="button"], [type="submit"] {
+  background-color: #26a69a;
+  color: white;
+  display: inline-block;
+  margin: 0 0.5em 0.5em 0;
+  padding: 0.5em 1em;
+}
+
+.orange {
+  background-color: #ff851b;
+  color: white;
+}
+
+.spaced {
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+.center {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
 
 .sample-show-hide {
@@ -33,4 +92,8 @@
 
 .sample-show-hide.ng-hide {
   opacity: 0;
+}
+
+.delay-500ms {
+  transition-delay: 0.5s;
 }
