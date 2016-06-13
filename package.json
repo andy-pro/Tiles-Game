@@ -1,6 +1,9 @@
 {
   "author": "Andy Pro",
-  "license": "Free",
+  "name": "Tiles Classic Game",
+  "version": "0.0.7",
+  "license": "MIT",
+  "repository": "https://github.com/andy-pro/Tiles-Game",
   "dependencies": {
 
   },

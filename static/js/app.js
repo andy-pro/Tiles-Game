@@ -2,7 +2,7 @@
   Angular Game Platform
   andy.pro
   angular
-  09.06.2016
+  12.06.2016
 */
 
 'use strict';
@@ -21,10 +21,8 @@ angular.module('AnguGame', ['ngAnimate'])
       on_remove: __digest
     });
     this.game.start();
-
     function __digest() {
       $scope.$apply();
     }
-
   }]
 });

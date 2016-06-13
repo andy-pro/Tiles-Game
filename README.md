@@ -1,6 +1,7 @@
 # Tiles Classic Game
 
 using Angular.js framework
+separation of game-logic from the framework
 
 ## Start application
 

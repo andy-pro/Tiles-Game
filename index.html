@@ -6,9 +6,17 @@
     <link rel="stylesheet" href="static/css/style.css">
   </head>
   <body ng-app="AnguGame">
-    <!--<tiles-game level="0"></tiles-game>-->
+    <!--
+      Tiles Classic Game.
+      Angular component <tiles-game> presents independent instance of game.
+      You can specify game level as 'level' attribute of component:
+        1 - 6 pairs to remove, playing field is 4x3
+        2 - 8 pairs to remove, playing field is 4x4 (by default)
+        3 - 10 pairs to remove, playing field is 5x4
+    -->
+    <!--<tiles-game level="1"></tiles-game>-->
     <tiles-game></tiles-game>
-    <!--<tiles-game level="2"></tiles-game>-->
+    <!--<tiles-game level="3"></tiles-game>-->
     <script src="static/js/angular.min.js"></script>
     <script src="static/js/angular-animate.min.js"></script>
     <script src="static/js/tiles-game.js"></script>

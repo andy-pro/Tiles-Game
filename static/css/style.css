@@ -13,13 +13,9 @@
 }
 
 .tile-table {
-/*display: table;*/
   margin: 30px auto 0 auto;
-  /*border: 4px double #333;*/
   border-radius: 10px;
   border: 1px solid #26a69a;
-  /*border-collapse: separate;*/
-  /*width: 100%;*/
   border-spacing: 7px 7px;
 }
 
@@ -34,7 +30,6 @@
 td.nest {
   width: 100px;
   height: 100px;
-  /*padding: 2px;*/
 }
 
 .nest-tile {
@@ -46,7 +41,6 @@ td.nest {
   text-align: center;
   font-size: 13px;
   padding-top: 14px;
-  /*margin: 2px;*/
 }
 
 .nest-tile:hover, .btn:hover {
@@ -94,6 +88,6 @@ td.nest {
   opacity: 0;
 }
 
-.delay-500ms {
+.delay-500ms.ng-hide {
   transition-delay: 0.5s;
 }
