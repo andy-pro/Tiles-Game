@@ -1,18 +1,17 @@
 <table class="tile-table">
-  <tr ng-repeat="row in $ctrl.game.tiles">
-    <td class="nest" ng-repeat="cell in row">
+  <tr ng-repeat="row in Tiles.tiles">
+    <td class="nest" ng-repeat="tile in row">
       <div class="nest-tile sample-show-hide"
-        ng-mousedown="$ctrl.game.pick(cell)" ng-hide="cell.removed">
-        <i class="fa fa-{{$ctrl.game.icons[cell.icon]}} fa-5x sample-show-hide"
-          aria-hidden="true" ng-show="cell.shown">
+        ng-mousedown="Tiles.game.pick(tile)" ng-hide="tile.remove">
+        <i class="fa fa-{{Tiles.icons[tile.icon]}} fa-5x sample-show-hide"
+          aria-hidden="true" ng-show="tile.show">
         </i>
       </div>
     </td>
   </tr>
 </table>
 <div class="center spaced padded">
-  <button class="btn large rounded {{$ctrl.game.gameover ? 'orange' : 'aquamarin'}}"
-    ng-click="$ctrl.game.start()">
-    {{$ctrl.game.gameover ? 'Congratulations!' : 'Restart'}}
+  <button class="btn large rounded {{Tiles.button.color}}" ng-click="Tiles.start()">
+    {{Tiles.button.caption}}
   </button>
 </div>
