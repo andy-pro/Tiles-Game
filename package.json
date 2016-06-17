@@ -1,16 +1,22 @@
 {
-  "author": "Andy Pro",
-  "name": "Tiles Classic Game",
+  "author": "andy-pro",
+  "name": "tiles-classic-game",
   "version": "0.0.7",
   "license": "MIT",
   "repository": "https://github.com/andy-pro/Tiles-Game",
-  "dependencies": {
-
-  },
+  "dependencies": {},
   "devDependencies": {
-
+    "http-server": "^0.9.0",
+    "jasmine-core": "^2.4.1",
+    "karma": "^0.13.22",
+    "karma-chrome-launcher": "^1.0.1",
+    "karma-firefox-launcher": "^1.0.0",
+    "karma-jasmine": "^1.0.2",
+    "protractor": "^3.3.0"
   },
   "scripts": {
-    "start": "python -m SimpleHTTPServer"
+    "start": "http-server -a localhost -p 8080 -c-1 ./app",
+    "test": "karma start karma.conf.js",
+    "protractor": "protractor e2e-tests/protractor.conf.js"
   }
 }

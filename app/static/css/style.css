@@ -5,13 +5,6 @@
   padding: 0;
 }
 
-.game-area {
-  margin: 30px auto 0 auto;
-  border-radius: 10px;
-  padding: 8px;
-  display: table;
-}
-
 .tile-table {
   margin: 30px auto 0 auto;
   border-radius: 10px;
@@ -36,7 +29,7 @@ td.nest {
   height: 85px;
   border-radius: 5px;
   background-color: #fff;
-  box-shadow: 0 0 0 1px #ddd inset;
+  box-shadow: 0 0 2px orange inset;
   color: #477;
   text-align: center;
   font-size: 13px;
@@ -45,7 +38,7 @@ td.nest {
 
 .nest-tile:hover, .btn:hover {
   cursor: pointer;
-  box-shadow: 0 0 10px #666;
+  box-shadow: 0 0 10px orange;
 }
 
 .btn.large {
@@ -86,8 +79,4 @@ td.nest {
 
 .sample-show-hide.ng-hide {
   opacity: 0;
-}
-
-.delay-500ms.ng-hide {
-  transition-delay: 0.5s;
 }

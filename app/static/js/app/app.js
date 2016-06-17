@@ -7,7 +7,7 @@
 
 'use strict';
 
-angular.module('AnguGame', ['ngAnimate'])
+angular.module('angularGames', ['ngAnimate'])
 
 .component('tilesGame', {
 
@@ -19,7 +19,7 @@ angular.module('AnguGame', ['ngAnimate'])
 
   controllerAs: 'Tiles',
 
-  controller: ['$timeout', function($timeout) {
+  controller: ['$timeout', function TilesGameController($timeout) {
 
     this.icons = [
       // visit 'http://fontawesome.io/icons' for details
@@ -32,35 +32,39 @@ angular.module('AnguGame', ['ngAnimate'])
       on_hide: function() { actions('show', false, arguments); },
       on_miss: function() { actions('show', false, arguments, _timeout_); },
       on_hit: function()  { actions('remove', true, arguments, _timeout_); },
-      on_gameover: function() {
+      on_gameover: function(time) {
         self.button.color = 'orange';
-        self.button.caption = 'Congratulations!';
+        self.button.caption = 'Congratulations! Your time: ' + time + ' s';
       }
     });
 
-    function actions(prop, action, tiles, timeout) {
+    function actions(prop, value, tiles, timeout) {
       $timeout(function() {
         for(var i = 0; i < tiles.length; i++) {
-          tiles[i][prop] = action;
+          tiles[i][prop] = value;
         }
       }, timeout || 0);
     }
 
     this.start = function(level) {
-      var level = level || this.level || 2,
-          preset = presets[+level-1],
+      var level = level || this.level || 2;
+      if (level < 1 || level > presets.length) {
+        throw "you choosed invalid level!";
+        //throw new TypeError("you choosed invalid level!");
+      }
+      var preset = presets[+level-1],
           num_pairs = preset.pairs,
           num_tiles = num_pairs * 2,
           num_cols = preset.cols,
           num_rows = ~~(num_tiles / num_cols);
-      var tiles = this.game.start(num_pairs);
+      this.tiles1x = this.game.start(num_pairs);
       // convert to 2-dimensional
       this.tiles = [];
       var id = 0;
       for(var i = 0; i < num_rows; i++) {
         var row = this.tiles[i] = [];
         for(var j = 0; j < num_cols; j++)
-          row.push(tiles[id++]);
+          row.push(this.tiles1x[id++]);
       }
       // game main button setup
       this.button = {

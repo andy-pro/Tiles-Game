@@ -37,7 +37,10 @@ TilesGame.prototype = {
         this.on_show(latter);
         if(former.icon == latter.icon) { // the contents of the tiles is same, both should disappear
           this.on_hit(former, latter);
-          if(!--this.count) this.on_gameover();
+          if(!--this.count) {
+            this.gameover = true;
+            this.on_gameover(Math.floor((performance.now() - this.starttime)/1000));
+          }
         } else{ // different contents, both should close
           this.on_miss(former, latter);
         }
@@ -66,6 +69,7 @@ TilesGame.prototype = {
 
     this.count = num_pairs;
     this.former = null;
+    this.gameover = false;
 
     for(var i = 0; i < num_tiles; i++) {
       tiles.push({
@@ -76,6 +80,8 @@ TilesGame.prototype = {
     }
 
     shuffle(tiles); // comment this for half-God-mode :)
+
+    this.starttime = performance.now();
 
     return tiles;
 

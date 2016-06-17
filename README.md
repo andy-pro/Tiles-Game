@@ -4,8 +4,6 @@ using Angular.js framework
 
 ## Start application
 
-- `npm start` if you have Python installed
+- `npm install`
 
-- `http-server` if you have node.js [http-server](https://github.com/indexzero/http-server) installed
-
-- or simply open the "index.html" in a browser
+- `npm start`
