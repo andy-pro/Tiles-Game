@@ -3,7 +3,7 @@
   andy.pro
   https://github.com/andy-pro/Tiles-Game
   angular
-  12.06.2016
+  20.06.2016
 */
 
 'use strict';

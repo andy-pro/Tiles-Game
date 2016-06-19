@@ -2,7 +2,7 @@
   <tr ng-repeat="row in Tiles.tiles">
     <td class="nest" ng-repeat="tile in row">
       <div class="nest-tile sample-show-hide"
-        ng-mousedown="Tiles.game.pick(tile)" ng-hide="tile.remove">
+        ng-mousedown="Tiles.game.pick(tile)" ng-hide="tile.remove" x-icon="{{tile.icon}}">
         <i class="fa fa-{{Tiles.icons[tile.icon]}} fa-5x sample-show-hide"
           aria-hidden="true" ng-show="tile.show">
         </i>
@@ -10,8 +10,15 @@
     </td>
   </tr>
 </table>
+<div class="center spaced padded">Level:
+  <select ng-model="Tiles.level">
+    <option value="1">Beginner</option>
+    <option value="2">Medium</option>
+    <option value="3">Expert</option>
+  </select>
+</div>
 <div class="center spaced padded">
-  <button class="btn large rounded {{Tiles.button.color}}" ng-click="Tiles.start()">
-    {{Tiles.button.caption}}
+  <button class="btn large rounded" ng-class="Tiles.button.status" ng-click="Tiles.start()">
+    {{Tiles.button.caption}} {{Tiles.game.time}}
   </button>
 </div>

@@ -19,7 +19,8 @@ describe('tilesGame tests', function() {
       var ctrl = $componentController('tilesGame');
 
       function testSize(level) {
-        ctrl.start(level);
+        ctrl.level = level;
+        ctrl.start();
         var pairs = presets[level-1].pairs,
             rows = presets[level-1].rows,
             cols = presets[level-1].cols,
@@ -51,8 +52,8 @@ describe('tilesGame tests', function() {
       var ctrl = $componentController('tilesGame');
 
       function testGameOver(level) {
-
-        ctrl.start(level);
+        ctrl.level = level;
+        ctrl.start();
         expect(ctrl.game.gameover).toBe(false);
         var num_tiles = presets[level-1].pairs*2;
         // a combination of all possible pairs

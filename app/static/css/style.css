@@ -58,19 +58,25 @@ td.nest {
   padding: 0.5em 1em;
 }
 
-.orange {
-  background-color: #ff851b;
-  color: white;
+button.gameover {
+  background-color: orange;
 }
 
 .spaced {
   margin-bottom: 20px;
   margin-top: 20px;
 }
+
 .center {
   margin-left: auto;
   margin-right: auto;
   text-align: center;
+}
+
+select {
+  border-radius: 5px;
+  border: 1px solid #26a69a;
+  height: 28px;
 }
 
 .sample-show-hide {

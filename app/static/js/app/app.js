@@ -2,7 +2,7 @@
   Angular Game Platform
   andy.pro
   angular
-  12.06.2016
+  20.06.2016
 */
 
 'use strict';
@@ -33,8 +33,9 @@ angular.module('angularGames', ['ngAnimate'])
       on_miss: function() { actions('show', false, arguments, _timeout_); },
       on_hit: function()  { actions('remove', true, arguments, _timeout_); },
       on_gameover: function(time) {
-        self.button.color = 'orange';
-        self.button.caption = 'Congratulations! Your time: ' + time + ' s';
+        self.button.status = 'gameover';
+        self.button.caption = 'Congratulations!';
+        self.game.time = 'Your time: ' + time + ' s';
       }
     });
 
@@ -46,13 +47,20 @@ angular.module('angularGames', ['ngAnimate'])
       }, timeout || 0);
     }
 
-    this.start = function(level) {
-      var level = level || this.level || 2;
+    this.doAddition = function() {
+
+      console.log('test button pressed!');
+
+    }
+
+
+    this.start = function() {
+      var level = +this.level;
       if (level < 1 || level > presets.length) {
         throw "you choosed invalid level!";
         //throw new TypeError("you choosed invalid level!");
       }
-      var preset = presets[+level-1],
+      var preset = presets[level-1],
           num_pairs = preset.pairs,
           num_tiles = num_pairs * 2,
           num_cols = preset.cols,
@@ -68,9 +76,10 @@ angular.module('angularGames', ['ngAnimate'])
       }
       // game main button setup
       this.button = {
-        color: 'aquamarin',
+        status: '',
         caption: 'Restart'
       }
+      this.game.time = '';
     }
 
     var presets = [
@@ -82,7 +91,9 @@ angular.module('angularGames', ['ngAnimate'])
     var _timeout_ = 500,
         self = this;
 
-    this.start(this.level);
+    this.level = this.level || "2";
+
+    this.start();
 
   }]
 
